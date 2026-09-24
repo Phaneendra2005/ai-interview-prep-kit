@@ -44,13 +44,26 @@ export class KitService {
       // Step 3-7: Retrieval and Discovery
       kitDocument.generationProgress = 'researching_company';
       await kitDocument.save();
-      const homePage = await this.retrieval.fetchPage(companyUrl);
-      console.log(`[Research] Fetched company URL=${companyUrl} textLen=${homePage.text.length} links=${homePage.links.length}`);
-      const originDomain = new URL(companyUrl).hostname;
-      const rankedLinks = this.discovery.rankLinks(homePage.links, originDomain).slice(0, 5); // take top 5
-      
-      const pagesContent: string[] = [homePage.text];
-      const pagesUsed: string[] = [companyUrl];
+      let homePage = { text: '', links: [] as string[] };
+      let originDomain = '';
+
+      try {
+        homePage = await this.retrieval.fetchPage(companyUrl);
+        console.log(`[Research] Fetched company URL=${companyUrl} textLen=${homePage.text.length} links=${homePage.links.length}`);
+        originDomain = new URL(companyUrl).hostname;
+      } catch (e: any) {
+        console.warn(`[Research] Primary URL fetch failed for ${companyUrl}:`, e.message);
+      }
+
+      const rankedLinks = originDomain ? this.discovery.rankLinks(homePage.links, originDomain).slice(0, 5) : []; // take top 5
+
+      const pagesContent: string[] = [];
+      const pagesUsed: string[] = [];
+
+      if (homePage.text) {
+        pagesContent.push(homePage.text);
+        pagesUsed.push(companyUrl);
+      }
 
       for (const link of rankedLinks) {
         try {
@@ -81,7 +94,7 @@ export class KitService {
       const behaviouralQuestions = await this.generation.generateQuestions(requirements, 'behavioural');
       const systemDesignQuestions = await this.generation.generateQuestions(requirements, 'system-design');
       const companyFitQuestions = await this.generation.generateQuestions(requirements, 'company-fit');
-      
+
       let allQuestions = [
         ...technicalQuestions,
         ...behaviouralQuestions,
@@ -113,6 +126,12 @@ export class KitService {
         allQuestions = [...allQuestions, ...additionalQuestions];
         uncoveredIds = this.coverage.checkCoverage(requirements, allQuestions);
         passes++;
+      }
+
+      // FINAL MUST-HAVE COVERAGE VALIDATION
+      const uncoveredMustHaves = requirements.filter(r => uncoveredIds.includes(r.id) && r.priority === 'must');
+      if (uncoveredMustHaves.length > 0) {
+        throw new Error('MUST_HAVE_REQUIREMENTS_UNCOVERED');
       }
 
       // Step 20: Schedule allocation
@@ -164,16 +183,17 @@ export class KitService {
         'AI_INVALID_RESPONSE': 'The AI returned an invalid response. Please try again.',
         'AI_PROVIDER_INVALID_KEY': 'The configured API key is invalid. Please check GEMINI_API_KEY.',
         'AI_PROVIDER_AUTH_FAILED': 'Authentication failed with the AI provider. Please check credentials.',
+        'MUST_HAVE_REQUIREMENTS_UNCOVERED': 'Failed to cover essential must-have requirements',
       };
       const errorMessage = errorMap[error.message] || 'Generation temporarily unavailable. Please try again shortly.';
       const errorCode = Object.keys(errorMap).includes(error.message) ? error.message : 'GEN_FAILED';
       console.error(`[KitGeneration] FAILED kitId=${kitIdString} code=${errorCode} message=${errorMessage}`);
-      
+
       if (kitIdString) {
         await Kit.findByIdAndUpdate(
           kitIdString,
-          { 
-            $set: { 
+          {
+            $set: {
               generationStatus: 'failed',
               generationErrors: [{ code: errorCode, message: errorMessage }],
               generationProgress: 'failed'
@@ -204,8 +224,8 @@ export class KitService {
 
       // We need to generate missing questions to cover all requirements again, as well as general questions
       // Actually, since we want to fully regenerate the "generated" content, we just generate everything and filter out duplicates or rely on the retained questions to satisfy coverage.
-      // But we shouldn't discard the old generated questions just to generate the exact same things if they are good. 
-      // The prompt says "Regeneration rules: generated + unedited content may be replaced". 
+      // But we shouldn't discard the old generated questions just to generate the exact same things if they are good.
+      // The prompt says "Regeneration rules: generated + unedited content may be replaced".
       // So we will just re-generate technical, behavioural, system-design, company-fit for all requirements.
       const technicalQuestions = await this.generation.generateQuestions(requirements, 'technical', retainedQuestions.map(q => q.id));
       const behaviouralQuestions = await this.generation.generateQuestions(requirements, 'behavioural', retainedQuestions.map(q => q.id));
@@ -223,15 +243,15 @@ export class KitService {
 
       kit.generationProgress = 'generating_flashcards';
       await kit.save();
-      
+
       const newFlashcards = await this.generation.generateFlashcards(requirements);
       // To avoid duplicate IDs, we can filter or re-map. But the prompt specifically said we can replace them.
       let newlyGeneratedFlashcards = newFlashcards.map(f => ({ ...f, id: new mongoose.Types.ObjectId().toString(), source: 'generated' as const, pinned: false }));
-      
+
       // Ensure no ID collision
       const retainedFIds = new Set(retainedFlashcards.map(f => f.id));
       newlyGeneratedFlashcards = newlyGeneratedFlashcards.filter(f => !retainedFIds.has(f.id));
-      
+
       const allFlashcards = [...retainedFlashcards, ...newlyGeneratedFlashcards];
 
       kit.generationProgress = 'checking_coverage';
@@ -265,7 +285,7 @@ export class KitService {
         uncovered_requirement_ids: uncoveredIds,
         passes
       };
-      
+
       // Ensure questions don't reference missing requirements
       const reqIds = new Set(requirements.map(r => r.id));
       kit.questions.forEach(q => {
@@ -274,7 +294,7 @@ export class KitService {
       kit.flashcards.forEach(f => {
         f.requirement_ids = f.requirement_ids.filter(id => reqIds.has(id));
       });
-      
+
       const qIds = new Set(allQuestions.map(q => q.id));
       kit.schedule.days.forEach(day => {
         day.question_ids = day.question_ids.filter(id => qIds.has(id));
@@ -296,11 +316,11 @@ export class KitService {
       const errorMessage = errorMap[error.message] || 'Generation temporarily unavailable. Please try again shortly.';
       const errorCode = Object.keys(errorMap).includes(error.message) ? error.message : 'REGEN_FAILED';
       console.error(`[KitRegeneration] FAILED stage=${kit.generationProgress} code=${errorCode}`);
-      
+
       await Kit.findByIdAndUpdate(
         kit._id,
-        { 
-          $set: { 
+        {
+          $set: {
             generationStatus: 'failed',
             generationErrors: [{ code: errorCode, message: errorMessage }],
             generationProgress: 'failed'
