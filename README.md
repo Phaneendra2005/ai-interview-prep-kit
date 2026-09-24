@@ -700,7 +700,7 @@ https://ai-interview-prep-backend-8qt3.onrender.com
 
 # 👨‍💻 Author
 
-**Phaneendra K**
+**Phaneendra Kanduri**
 
 Full-Stack Developer | AI/ML Engineer
 
