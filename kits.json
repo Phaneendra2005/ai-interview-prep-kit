@@ -1,0 +1,738 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-24T07:46:49.873Z",
+  "kits": [
+    {
+      "id": "case-1-detailed",
+      "status": "ok",
+      "kit": {
+        "userId": "6ab4d53fcb5c0ba0b52c41cd",
+        "source": {
+          "company": "Extracted from brief",
+          "company_url": "https://example.com",
+          "role": "Frontend Engineer",
+          "location": "Unknown",
+          "jd_chars": 169,
+          "researched_at": "2026-09-24T07:46:27.698Z",
+          "pages_used": [
+            "https://example.com",
+            "https://iana.org/domains/example"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example Domain is a reserved domain maintained for documentation purposes as described in RFC 2606 and RFC 6761. It provides basic informational web services for illustrative examples without requiring prior coordination.",
+          "what_they_do": "The entity provides reserved domain names for use in documentation and illustrative examples, along with a best-effort web service that supplies basic domain purpose information.",
+          "sources": [
+            "https://example.com"
+          ]
+        },
+        "role": {
+          "title": "Frontend Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Develop frontend applications using React",
+            "Build applications with Next.js",
+            "Manage state using Redux",
+            "Write code using TypeScript"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "5+ years of React experience",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Experience with Next.js",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r3",
+              "text": "Experience with Redux",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r4",
+              "text": "Experience with TypeScript",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r5",
+              "text": "Experience with Node.js",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r6",
+              "text": "Experience with AWS",
+              "kind": "technical",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "6ab4d553cb5c0ba0b52c41d6",
+            "requirement_ids": [
+              "r1",
+              "r4"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you would design a custom React hook in TypeScript that manages complex asynchronous state, and discuss how you ensure type safety across renders.",
+            "answer_outline": "Candidates should discuss generics, handling loading/error states, cleanup functions in useEffect, and proper typing of return values (e.g., tuples or discriminated unions).",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41d7",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Compare Next.js Server-Side Rendering (SSR) and Incremental Static Regeneration (ISR). When would you choose one over the other for a high-traffic enterprise application?",
+            "answer_outline": "SSR generates HTML on each request, ideal for highly dynamic, user-specific data. ISR allows updating static pages incrementally in the background without a full site rebuild, great for e-commerce or blogs with frequent updates.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41d8",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "technical",
+            "prompt": "How do Redux Toolkit's createSlice and createAsyncThunk simplify state management compared to traditional Redux boilerplate, and how do they handle immutability under the hood?",
+            "answer_outline": "createSlice uses Immer to allow writing mutating-looking code that safely updates immutable state. createAsyncThunk standardizes the lifecycle actions (pending, fulfilled, rejected) for asynchronous operations, reducing manual action creator boilerplate.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41d9",
+            "requirement_ids": [
+              "r5",
+              "r6"
+            ],
+            "category": "technical",
+            "prompt": "How would you architect a Node.js microservice deployed on AWS, and what strategies would you use for monitoring and handling bottlenecks?",
+            "answer_outline": "Discussion should include using AWS ECS or Lambda for hosting, API Gateway for routing, CloudWatch for logging and metrics, and strategies like caching (ElastiCache) or horizontal scaling to handle bottlenecks.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41da",
+            "requirement_ids": [
+              "r1",
+              "r4"
+            ],
+            "category": "behavioural",
+            "prompt": "Tell me about a time when you had to refactor a legacy React and TypeScript codebase to improve maintainability. How did you approach the migration without breaking existing features?",
+            "answer_outline": "Look for a structured approach to planning the refactor, strategies for ensuring type safety during migration, communication with team members, and the ultimate impact on code quality and velocity.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41db",
+            "requirement_ids": [
+              "r2",
+              "r3"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe a situation where a complex state management issue involving Next.js server-side rendering and Redux caused a hard-to-debug bug in production. How did you diagnose and resolve it?",
+            "answer_outline": "The candidate should explain how they reproduced the issue across server and client boundaries, utilized debugging tools, collaborated with the team, and implemented safeguards to prevent regression.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41dc",
+            "requirement_ids": [
+              "r5",
+              "r6"
+            ],
+            "category": "behavioural",
+            "prompt": "Can you share an experience where you had to quickly learn a backend technology like Node.js or a cloud platform like AWS to unblock a frontend feature your team was building?",
+            "answer_outline": "Evaluate the candidate's initiative, resourcefulness in self-learning, collaboration with backend/DevOps engineers, and how effectively they applied the new knowledge to deliver the project on time.",
+            "difficulty": 1,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41dd",
+            "requirement_ids": [
+              "r1",
+              "r2",
+              "r4"
+            ],
+            "category": "system-design",
+            "prompt": "Design a large-scale e-commerce storefront using React, Next.js, and TypeScript. Discuss your strategy for balancing SSR, ISR, and CSR to optimize Core Web Vitals and SEO.",
+            "answer_outline": "Cover Next.js rendering methods, TypeScript for robust component contracts, state management for cart/user data, and performance optimization techniques.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41de",
+            "requirement_ids": [
+              "r1",
+              "r3",
+              "r4"
+            ],
+            "category": "system-design",
+            "prompt": "Design a real-time collaborative dashboard application with complex state requirements using React, Redux, and TypeScript. How would you structure the Redux store and handle high-frequency WebSocket updates?",
+            "answer_outline": "Discuss normalized state shape, middleware for WebSockets, action batching, memoization with Reselect, and TypeScript types for actions and state.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41df",
+            "requirement_ids": [
+              "r2",
+              "r5",
+              "r6"
+            ],
+            "category": "system-design",
+            "prompt": "Design a serverless full-stack web application deployment architecture utilizing Next.js, Node.js microservices, and AWS. How do you handle authentication, API routing, and asset caching?",
+            "answer_outline": "Explain Next.js API routes vs backend Node.js services, AWS deployment (e.g., ECS, Lambda, S3, CloudFront), and secure token-based authentication flows.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e0",
+            "requirement_ids": [
+              "r1",
+              "r2"
+            ],
+            "category": "company-fit",
+            "prompt": "How do you align your deep expertise in React and Next.js with our engineering team's goal of delivering high-performance, SEO-optimized web applications under tight deadlines?",
+            "answer_outline": "The candidate should discuss balancing best practices in React/Next.js with business goals, collaborating effectively with cross-functional teams, and prioritizing user experience and performance metrics.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e1",
+            "requirement_ids": [
+              "r3",
+              "r4"
+            ],
+            "category": "company-fit",
+            "prompt": "Describe a time when you had to advocate for strict TypeScript types and a robust Redux state management structure within a fast-moving team environment. How did you handle trade-offs between speed and code maintainability?",
+            "answer_outline": "Look for communication skills, the ability to mentor team members on TypeScript and Redux, and practical decision-making regarding technical debt versus rapid feature delivery.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e2",
+            "requirement_ids": [
+              "r5",
+              "r6"
+            ],
+            "category": "company-fit",
+            "prompt": "How do your supplementary skills in Node.js and AWS enable you to collaborate more effectively with our backend and DevOps teams to ensure smooth full-stack deployments?",
+            "answer_outline": "The candidate should demonstrate a holistic understanding of the deployment pipeline, a willingness to cross-functional collaboration, and an ability to take ownership of features from frontend to cloud infrastructure.",
+            "difficulty": 1,
+            "source": "generated",
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e3",
+            "front": "What is the minimum required experience in years for React?",
+            "back": "5+ years",
+            "requirement_ids": [
+              "r1"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e4",
+            "front": "Which framework and state management tool are mandatory for this role?",
+            "back": "Next.js and Redux",
+            "requirement_ids": [
+              "r2",
+              "r3"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e5",
+            "front": "Is TypeScript experience a must-have or nice-to-have requirement?",
+            "back": "Must-have",
+            "requirement_ids": [
+              "r4"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e6",
+            "front": "What are the nice-to-have backend and cloud requirements?",
+            "back": "Node.js and AWS",
+            "requirement_ids": [
+              "r5",
+              "r6"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d553cb5c0ba0b52c41e7",
+            "front": "List all four 'must' priority technical requirements.",
+            "back": "5+ years of React, Next.js, Redux, and TypeScript",
+            "requirement_ids": [
+              "r1",
+              "r2",
+              "r3",
+              "r4"
+            ],
+            "source": "generated",
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 14,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41d8"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 2,
+              "focus": "Behavioural Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41db"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "System-design Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41dd"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 4,
+              "focus": "System-design Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41df"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 5,
+              "focus": "Company-fit Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41e1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 6,
+              "focus": "Technical Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41d6"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 7,
+              "focus": "Technical Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41d7"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 8,
+              "focus": "Behavioural Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41da"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 9,
+              "focus": "System-design Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41de"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 10,
+              "focus": "Company-fit Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41e0"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 11,
+              "focus": "Technical Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41d9"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 12,
+              "focus": "Behavioural Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41dc"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 13,
+              "focus": "Company-fit Focus",
+              "question_ids": [
+                "6ab4d553cb5c0ba0b52c41e2"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 14,
+              "focus": "General Review / Rest",
+              "question_ids": [],
+              "minutes": 0
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        },
+        "generationStatus": "completed",
+        "generationProgress": "completed",
+        "generationErrors": [],
+        "_id": "6ab4d53fcb5c0ba0b52c41ce",
+        "createdAt": "2026-09-24T07:46:07.815Z",
+        "updatedAt": "2026-09-24T07:46:27.716Z",
+        "__v": 1
+      },
+      "error": null
+    },
+    {
+      "id": "case-2-thin",
+      "status": "ok",
+      "kit": {
+        "userId": "6ab4d53fcb5c0ba0b52c41cd",
+        "source": {
+          "company": "Extracted from brief",
+          "company_url": "https://example.org",
+          "role": "Programmer",
+          "location": "Unknown",
+          "jd_chars": 31,
+          "researched_at": "2026-09-24T07:46:48.576Z",
+          "pages_used": [
+            "https://example.org",
+            "https://iana.org/domains/example"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example.org is a reserved domain maintained for documentation and illustrative purposes as described in RFC 2606 and RFC 6761. It provides basic web services on a best-effort basis and is not intended to support production applications.",
+          "what_they_do": "Provides a placeholder web service and domain for use in technical documents, guides, and examples without requiring prior coordination or registration.",
+          "sources": [
+            "https://example.org"
+          ]
+        },
+        "role": {
+          "title": "Programmer",
+          "seniority": "Not Specified",
+          "responsibilities": [
+            "Write and maintain code using JavaScript"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Knows JS",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "6ab4d568cb5c0ba0b52c41f4",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain the difference between 'let', 'const', and 'var' in JavaScript in terms of scoping and hoisting.",
+            "answer_outline": "'var' is function-scoped and hoisted with an initial value of undefined. 'let' and 'const' are block-scoped and hoisted without initialization, resulting in a Temporal Dead Zone (TDZ). 'const' cannot be reassigned.",
+            "difficulty": 1,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41f5",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "What is a closure in JavaScript? Provide a common use case for it.",
+            "answer_outline": "A closure is a function bundled together with references to its lexical environment. It allows an inner function to access an outer function's scope even after the outer function has closed. Use cases include data privacy/encapsulation and factory functions.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41f6",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how the JavaScript event loop handles asynchronous operations, microtasks (like Promises), and macrotasks (like setTimeout).",
+            "answer_outline": "The call stack executes synchronous code. When async tasks complete, callbacks are pushed to queues. The microtask queue has higher priority than the macrotask queue. The event loop continuously checks if the call stack is empty, then executes all microtasks before picking the next macrotask.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41f7",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe a time when you had to debug a complex JavaScript issue under tight deadlines. How did you handle the pressure and what was your approach?",
+            "answer_outline": "Candidate should explain their systematic debugging process, how they managed stress, prioritized tasks, and successfully resolved the JS bug.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41f8",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Tell me about a situation where you had to explain a difficult JavaScript concept or bug to a non-technical team member. How did you ensure they understood?",
+            "answer_outline": "Look for communication skills, patience, ability to avoid overly technical jargon, and use of relatable analogies.",
+            "difficulty": 1,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41f9",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Give an example of a time when you disagreed with a teammate's architectural approach in a JavaScript-heavy project. How did you resolve the conflict?",
+            "answer_outline": "Candidate should demonstrate professional disagreement, reliance on data or best practices, openness to feedback, and collaborative problem-solving.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41fa",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-performance, client-side caching layer in JavaScript for a single-page application that handles frequent real-time data updates without blocking the UI thread.",
+            "answer_outline": "Discuss Web Workers for offloading data processing, IndexedDB for persistent storage, LRU cache implementation in JS, and strategies for avoiding garbage collection pauses.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41fb",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Architect a real-time collaborative code editor frontend in JavaScript, focusing on state management, conflict resolution (e.g., OT or CRDTs), and efficient DOM rendering.",
+            "answer_outline": "Cover event handling, integration of CRDT libraries in JS, WebSocket communication management, differential updates, and rendering optimization using virtual DOM or direct DOM manipulation.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41fc",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Design a lightweight JavaScript SDK or widget to be embedded on third-party websites that securely tracks user interactions and batches network requests.",
+            "answer_outline": "Explain script loading optimization, encapsulation to prevent global scope pollution, asynchronous event queuing, handling browser restrictions (CORS, CSP), and using navigator.sendBeacon for reliable delivery.",
+            "difficulty": 1,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41fd",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "How do you align your JavaScript development practices with our engineering team's goal of shipping clean, maintainable code rapidly?",
+            "answer_outline": "Candidate should discuss code reviews, adherence to style guides, unit testing, and balancing speed with quality.",
+            "difficulty": 1,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41fe",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "Describe a scenario where you had to onboard onto a legacy JavaScript codebase at a fast-growing company. How did you get up to speed quickly?",
+            "answer_outline": "Look for proactive documentation reading, small initial PRs, pairing with senior engineers, and understanding the core architecture.",
+            "difficulty": 2,
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c41ff",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "Our product scales rapidly, often requiring JavaScript optimizations under tight deadlines. Can you share how you prioritize technical debt versus feature delivery in a high-pressure environment?",
+            "answer_outline": "Candidate should demonstrate pragmatic decision-making, communication with stakeholders, and strategies for iterative refactoring.",
+            "difficulty": 3,
+            "source": "generated",
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "6ab4d568cb5c0ba0b52c4200",
+            "front": "What programming language is required for the technical role?",
+            "back": "JavaScript (JS)",
+            "requirement_ids": [
+              "r1"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c4201",
+            "front": "Is knowing JS a 'must' or 'nice-to-have' requirement?",
+            "back": "It is a 'must' requirement.",
+            "requirement_ids": [
+              "r1"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c4202",
+            "front": "What kind of requirement is 'Knows JS'?",
+            "back": "Technical",
+            "requirement_ids": [
+              "r1"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c4203",
+            "front": "Which requirement ID corresponds to the JavaScript proficiency?",
+            "back": "r1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "source": "generated",
+            "pinned": false
+          },
+          {
+            "id": "6ab4d568cb5c0ba0b52c4204",
+            "front": "What is the core technical competency expected according to requirement r1?",
+            "back": "Knowing JS",
+            "requirement_ids": [
+              "r1"
+            ],
+            "source": "generated",
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 1,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical Focus",
+              "question_ids": [
+                "6ab4d568cb5c0ba0b52c41f6",
+                "6ab4d568cb5c0ba0b52c41f9",
+                "6ab4d568cb5c0ba0b52c41fb",
+                "6ab4d568cb5c0ba0b52c41ff",
+                "6ab4d568cb5c0ba0b52c41f5",
+                "6ab4d568cb5c0ba0b52c41f7",
+                "6ab4d568cb5c0ba0b52c41fa",
+                "6ab4d568cb5c0ba0b52c41fe",
+                "6ab4d568cb5c0ba0b52c41f4",
+                "6ab4d568cb5c0ba0b52c41f8",
+                "6ab4d568cb5c0ba0b52c41fc",
+                "6ab4d568cb5c0ba0b52c41fd"
+              ],
+              "minutes": 360
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        },
+        "generationStatus": "completed",
+        "generationProgress": "completed",
+        "generationErrors": [],
+        "_id": "6ab4d553cb5c0ba0b52c41ed",
+        "createdAt": "2026-09-24T07:46:27.749Z",
+        "updatedAt": "2026-09-24T07:46:48.587Z",
+        "__v": 1
+      },
+      "error": null
+    },
+    {
+      "id": "case-3-localhost",
+      "status": "failed",
+      "kit": null,
+      "error": {
+        "code": "Error",
+        "message": "AI_PROVIDER_QUOTA_EXHAUSTED"
+      }
+    },
+    {
+      "id": "case-4-invalid-url",
+      "status": "failed",
+      "kit": null,
+      "error": {
+        "code": "Error",
+        "message": "AI_PROVIDER_QUOTA_EXHAUSTED"
+      }
+    },
+    {
+      "id": "case-5-empty-discussion",
+      "status": "failed",
+      "kit": null,
+      "error": {
+        "code": "Error",
+        "message": "AI_PROVIDER_QUOTA_EXHAUSTED"
+      }
+    }
+  ]
+}

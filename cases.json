@@ -1,0 +1,32 @@
+[
+  {
+    "id": "case-1-detailed",
+    "jdText": "We are looking for a Senior Frontend Engineer with 5+ years of React experience. Must have experience with Next.js, Redux, and TypeScript. Nice to have: Node.js and AWS.",
+    "companyUrl": "https://example.com",
+    "days": 14
+  },
+  {
+    "id": "case-2-thin",
+    "jdText": "Need a programmer who knows JS.",
+    "companyUrl": "https://example.org",
+    "days": 1
+  },
+  {
+    "id": "case-3-localhost",
+    "jdText": "Backend dev for local startup.",
+    "companyUrl": "http://127.0.0.1:8080/company",
+    "days": 60
+  },
+  {
+    "id": "case-4-invalid-url",
+    "jdText": "Software Engineer",
+    "companyUrl": "http://this-url-definitely-does-not-exist.local",
+    "days": 7
+  },
+  {
+    "id": "case-5-empty-discussion",
+    "jdText": "Data Scientist",
+    "companyUrl": "https://example.net",
+    "days": 30
+  }
+]

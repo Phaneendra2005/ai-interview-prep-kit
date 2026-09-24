@@ -1,0 +1,20 @@
+{
+  "name": "ai-interview-prep-kit",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "evaluate": "npm run evaluate --workspace=backend --"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "typescript": "^5.7.3"
+  }
+}
