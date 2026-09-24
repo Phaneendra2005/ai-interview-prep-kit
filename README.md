@@ -660,4 +660,48 @@ The walkthrough demonstrates:
 
 # 📌 Assessment Highlights
 
-This project focuses on the engineering problem of building a reliable AI-powered workflow rather than simply displaying an
+This project focuses on the engineering problem of building a reliable AI-powered workflow rather than simply displaying an LLM response.
+
+### Key implementation areas
+
+* Full-stack architecture
+* AI generation pipeline
+* Structured LLM output
+* Requirement extraction
+* Research and crawling
+* Coverage validation
+* Deterministic scheduling
+* Authentication
+* Persistence
+* User-controlled editing
+* Regeneration
+* Practice workflow
+* Batch evaluation
+* SSRF protection
+* Production deployment
+
+---
+
+# 🔗 Links
+
+### 🌐 Live Application
+
+https://ai-interview-prep-kit-frontend-zeta.vercel.app/
+
+### 💻 GitHub Repository
+
+https://github.com/Phaneendra2005/ai-interview-prep-kit
+
+### ⚙️ Production Backend
+
+https://ai-interview-prep-backend-8qt3.onrender.com
+
+---
+
+# 👨‍💻 Author
+
+**Phaneendra K**
+
+Full-Stack Developer | AI/ML Engineer
+
+Built as a full-stack engineering assessment project focused on reliable AI generation, structured data, deterministic validation, and production-ready user workflows.
